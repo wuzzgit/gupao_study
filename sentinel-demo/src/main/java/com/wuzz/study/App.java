@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * sentinel限流demo学习
+ * sentinel限流demo学习:
+ * 使用jmeter测试线程数设置多一点
  */
 @SpringBootApplication
 public class App {

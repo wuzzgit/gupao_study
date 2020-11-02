@@ -16,7 +16,7 @@ public class SentinelController {
 
 
     @SentinelResource(value = "sayHello") //针对方法级别的限流
-    @GetMapping("/say")
+    @GetMapping("/hello")
     public String sayHello(){
         System.out.println("hello world");
         return "hello world";
