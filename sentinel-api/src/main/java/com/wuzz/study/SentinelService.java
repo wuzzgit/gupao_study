@@ -8,4 +8,6 @@ package com.wuzz.study;
 public interface SentinelService {
 
     String sayHello();
+
+    String say();
 }

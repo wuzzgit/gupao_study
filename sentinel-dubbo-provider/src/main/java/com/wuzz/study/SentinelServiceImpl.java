@@ -11,7 +11,13 @@ public class SentinelServiceImpl implements SentinelService {
 
     @Override
     public String sayHello() {
-        System.out.println(">>>>.....进入了限流！.....<<<<");
+        System.out.println(">>>>.....进入了限流A！.....<<<<");
+        return "hello,已经进入了限流！！！";
+    }
+
+    @Override
+    public String say() {
+        System.out.println(">>>>.....进入了限流B！.....<<<<");
         return "hello,已经进入了限流！！！";
     }
 }

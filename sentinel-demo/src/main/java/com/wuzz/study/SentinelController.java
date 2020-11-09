@@ -1,6 +1,7 @@
 package com.wuzz.study;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,4 +22,5 @@ public class SentinelController {
         System.out.println("hello world");
         return "hello world";
     }
+
 }
