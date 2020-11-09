@@ -6,12 +6,16 @@
 
   <groupId>com.wuzz.study</groupId>
   <artifactId>gupao_study</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+
     <modules>
       <module>sentinel-demo</module>
       <module>sentinel-dubbo-provider</module>
+      <module>sentinel-api</module>
+      <module>sentinel-dubbo-consumer-web</module>
     </modules>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -19,7 +23,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-    <name>gupao_study</name>
+  <name>gupao_study</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,12 +32,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
 </project>
