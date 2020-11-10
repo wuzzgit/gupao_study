@@ -14,6 +14,7 @@
       <module>sentinel-dubbo-provider</module>
       <module>sentinel-api</module>
       <module>sentinel-dubbo-consumer-web</module>
+        <module>sentinel-token</module>
     </modules>
 
   <parent>

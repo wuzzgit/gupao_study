@@ -24,6 +24,7 @@ public class HelloController {
 
     @GetMapping("/hello2")
     public String hello2(){
+        System.out.println(">>>>>>开始");
         return sentinelService.sayHello();
     }
 
