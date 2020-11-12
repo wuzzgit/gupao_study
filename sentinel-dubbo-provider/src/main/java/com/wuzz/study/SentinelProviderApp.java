@@ -2,6 +2,7 @@ package com.wuzz.study;
 
 import com.alibaba.csp.sentinel.cluster.ClusterStateManager;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
+import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRule;
 import com.alibaba.csp.sentinel.slots.block.flow.ClusterFlowConfig;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
@@ -35,12 +36,15 @@ public class SentinelProviderApp {
     private static void initRule() {
         //多规则设置
         List<FlowRule> ruleList = new ArrayList<>();
+        //熔断规则
+       /* List<DegradeRule> degradeRules = new ArrayList<>();
+        DegradeRule degradeRule=new DegradeRule();*/
+
         FlowRule flowRule = new FlowRule();
         flowRule.setResource("com.wuzz.study.SentinelService:sayHello()");//阈值接口或者资源名（方法名）
         flowRule.setGrade(RuleConstant.FLOW_GRADE_QPS); //限流的阈值的类型
-        //是否采用集群模式
+        /****是否采用集群模式********开始***/
         //flowRule.setClusterMode(true);
-
        /* ClusterFlowConfig clusterFlowConfig=new ClusterFlowConfig();
        //全局的id
         clusterFlowConfig.setFlowId(Long.valueOf(111));
@@ -49,6 +53,8 @@ public class SentinelProviderApp {
         //1：代表全局
         clusterFlowConfig.setThresholdType(1);
         flowRule.setClusterConfig(clusterFlowConfig);*/
+
+        /****是否采用集群模式********结束***/
 
         flowRule.setCount(15);//QPS 10
         flowRule.setLimitApp("sentinel-web");//设置来源
