@@ -15,6 +15,7 @@
       <module>sentinel-api</module>
       <module>sentinel-dubbo-consumer-web</module>
         <module>sentinel-token</module>
+        <module>kafka-demo</module>
     </modules>
 
   <parent>
