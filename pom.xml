@@ -16,6 +16,7 @@
       <module>sentinel-dubbo-consumer-web</module>
         <module>sentinel-token</module>
         <module>kafka-demo</module>
+        <module>rabbitmq-demo</module>
     </modules>
 
   <parent>
