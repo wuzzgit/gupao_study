@@ -1,4 +1,4 @@
-package com.wuzz.study;
+package com.wuzz.study.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -33,7 +33,7 @@ public class RabbitmqConfig {
 
     @Bean("fanoutExchange")
     public TopicExchange getFanoutExchange(){
-        return new TopicExchange("Fanout_EXCHANGE");
+        return new TopicExchange("fanoutExchange");
     }
     //绑定通道
     @Bean("fanoutQueue")
@@ -104,7 +104,7 @@ public class RabbitmqConfig {
         //绑定死信交换机路由key
         hashMap.put("x-dead-letter-routing-key", DLX_ROUTING_KEY);
         //设置队列消息超时时间
-        hashMap.put("x-message-ttl",10000);
+        hashMap.put("x-message-ttl",5000);
         hashMap.put("x-max-length", 10);
         return QueueBuilder.durable("boot_queue").withArguments(hashMap).build();
     }

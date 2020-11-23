@@ -8,19 +8,15 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author wuzongzhao
- * @date 2020/11/17 19:59
+ * @date 2020/11/20 16:06
  */
 @Component
-public class RabbitMqDlxConsumer {
-
-    private static int num=2;
+public class AckMqConsumer {
 
     @RabbitHandler
-    @RabbitListener(queues = "boot_queue")
+    @RabbitListener(queues = "ackTwo_Queue")
     public void process(String messages, Channel channel, Message message) throws Exception{
-        System.out.println(">>>>>>>>>"+num);
-        Thread.sleep(8000);
-        System.out.println("死信消费者测试开始----->"+messages);
+        System.out.println("direct消费者----->"+messages);
 
         try {
             /**
@@ -29,14 +25,8 @@ public class RabbitMqDlxConsumer {
              * deliveryTag:该消息的index <br>
              * multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息 <br>
              */
-            if(num>1){
-                System.out.println(">>>>>>>>>>>消息加入死信队列后,消费者会从死信队列拉取数据，次数："+num);
-                channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-            }else {
-                channel.basicNack(message.getMessageProperties().getDeliveryTag(),
-                        false, true);
-                num=num+1;
-            }
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+            System.out.println("get msg1 success msg = "+messages);
 
         } catch (Exception e) {
             //消费者处理出了问题，需要告诉队列信息消费失败
@@ -61,3 +51,5 @@ public class RabbitMqDlxConsumer {
         }
     }
 }
+
+
